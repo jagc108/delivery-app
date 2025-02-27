@@ -99,7 +99,7 @@ La aplicación de delivery se compone de múltiples componentes que se integran 
 
 ---
 
-### 6. Diagrama de Arquitectura en Mermaid (AWS)
+### 6. Diagrama de Arquitectura en AWS (Tentativo)
 
 ```mermaid
 flowchart TD
