@@ -153,3 +153,9 @@ flowchart TD
 
     %% Integracion con Servicios Externos
     F -- "Validacion de Pagos" --> K
+```
+<br>
+<br>
+<br>
+
+![Infrastructure Diagram](Delivery-app.drawio.png)
