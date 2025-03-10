@@ -49,7 +49,7 @@ La aplicación de delivery se compone de múltiples componentes que se integran 
   - **Patrones de Resiliencia:** Implementación de circuit breakers y estrategias de retry para evitar fallos en cascada.
 
 - **Integración con Servicios Externos:**
-  - **Pasarelas de Pago:** Integración con proveedores como Stripe o PayPal para el procesamiento seguro de pagos.
+  - **Pasarelas de Pago:** Integración con proveedores como MercadoPago para el procesamiento seguro de pagos.
   - **Geolocalización:** Uso de APIs externas (como Google Maps) para obtener rutas y datos de ubicación en tiempo real.
 
 ---
