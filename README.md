@@ -99,8 +99,9 @@ La aplicación de delivery se compone de múltiples componentes que se integran 
 
 ---
 
-### 6. Diagrama de Arquitectura en AWS (Tentativo)
+### 6. Diagramas (Tentativo)
 
+#### Diagrama de Flujo
 ```mermaid
 flowchart TD
     subgraph "Frontend & Distribucion"
@@ -154,8 +155,68 @@ flowchart TD
     %% Integracion con Servicios Externos
     F -- "Validacion de Pagos" --> K
 ```
-<br>
-<br>
-<br>
+
+#### Diagrama de Infraestructura
 
 ![Infrastructure Diagram](Delivery-app.drawio.png)
+
+#### Diagrama ER para la Base de Datos
+```mermaid
+erDiagram
+    USUARIO {
+        string id PK
+        string nombre
+        string email
+        string passwordHash
+        string telefono
+    }
+    
+    RESTAURANTE {
+        string id PK
+        string nombre
+        string direccion
+        float latitud
+        float longitud
+        string categoria
+    }
+    
+    PRODUCTO {
+        string id PK
+        string restauranteId FK
+        string nombre
+        string descripcion
+        float precio
+    }
+    
+    PEDIDO {
+        string id PK
+        string usuarioId FK
+        string restauranteId FK
+        string estado
+        datetime fechaHora
+        string repartidorUbicacion
+    }
+    
+    DETALLE_PEDIDO {
+        string pedidoId PK, FK
+        string productoId PK, FK
+        int cantidad
+        float precioUnitario
+    }
+    
+    PAGO {
+        string id PK
+        string pedidoId FK
+        string metodoPago
+        string estado
+        string transaccionDetalle
+    }
+
+    USUARIO ||--o{ PEDIDO : "realiza"
+    RESTAURANTE ||--o{ PEDIDO : "atiende"
+    RESTAURANTE ||--o{ PRODUCTO : "ofrece"
+    PEDIDO ||--o{ DETALLE_PEDIDO : "incluye"
+    PRODUCTO ||--o{ DETALLE_PEDIDO : "aparece en"
+    PEDIDO ||--|| PAGO : "genera"
+
+```
